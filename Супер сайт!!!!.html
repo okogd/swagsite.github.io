@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<!-- saved from url=(0106)file:///C:/Users/Anton/Desktop/%D0%BC%D0%BE%D0%B9%20%D1%81%D0%B0%D0%B9%D1%82/%D1%81%D0%B0%D0%B9%D1%82.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAW | Программа Курса // Аудио Академия</title>
+    <!-- Подключение Tailwind CSS -->
+    <script src="./Супер сайт!!!!_files/saved_resource"></script>
+    <!-- Подключение шрифта Inter (чистый, современный) -->
+    <link href="./Супер сайт!!!!_files/css2" rel="stylesheet">
+    <style>
+        /* Главный цвет акцента Spotify: Ярко-зеленый */
+        :root {
+            --spotify-green: #1DB954;
+            --spotify-dark: #121212;
+            --spotify-gray-card: #181818;
+            --spotify-light-gray: #b3b3b3;
+        }
+
+        /* Общие стили */
+        body {
+            background-color: var(--spotify-dark);
+            font-family: 'Inter', sans-serif;
+            color: #ffffff; /* Белый текст на темном фоне */
+        }
+        
+        /* Основная панель (имитация приложения) */
+        .spotify-panel {
+            background-color: var(--spotify-dark);
+            border-radius: 12px;
+            box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5); /* Глубокая тень */
+        }
+
+        /* Стиль кнопок (Зеленый акцент) */
+        .spotify-button {
+            background-color: var(--spotify-green);
+            color: var(--spotify-dark);
+            font-weight: 700;
+            transition: transform 0.1s ease-in-out, background-color 0.2s;
+            border: none;
+        }
+        .spotify-button:hover {
+            background-color: #1ed760; /* Чуть светлее при наведении */
+            transform: scale(1.03);
+        }
+
+        /* Стиль вкладок (Навигация) */
+        .spotify-tab {
+            color: var(--spotify-light-gray);
+            font-weight: 700;
+            transition: color 0.2s, border-bottom 0.2s;
+            cursor: pointer;
+        }
+        .spotify-tab:hover {
+            color: #ffffff;
+        }
+        .spotify-tab.active {
+            color: #ffffff;
+            border-bottom: 2px solid var(--spotify-green); /* Зеленая полоса под активной вкладкой */
+        }
+        
+        /* Стиль карточек контента (Модули и Проекты) */
+        .spotify-card {
+            background-color: var(--spotify-gray-card);
+            transition: background-color 0.2s;
+        }
+        .spotify-card:hover {
+            background-color: #282828; /* Чуть светлее при наведении */
+        }
+
+        /* Заголовки (используем Tailwind для размера и жирности) */
+        .content-block {
+            border-left: 3px solid var(--spotify-green); /* Зеленая полоса слева */
+            padding-left: 1.5rem;
+            margin-left: 0.5rem;
+        }
+        
+        /* Стиль для анимации картинки при наведении */
+        .equipment-image-container {
+            overflow: hidden; /* Скрывает часть изображения, выходящую за пределы контейнера */
+            border-radius: 8px;
+        }
+        .equipment-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out; /* Плавный переход для увеличения */
+        }
+        .equipment-image-container:hover .equipment-image {
+            transform: scale(1.1); /* Увеличение на 10% при наведении */
+        }
+
+        /* Стили для модального окна видео */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 50;
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-container {
+            width: 95%;
+            max-width: 900px;
+            background-color: var(--spotify-dark);
+            border-radius: 8px;
+            position: relative;
+        }
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.right-3{right:0.75rem}.top-3{top:0.75rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.ml-4{margin-left:1rem}.ml-6{margin-left:1.5rem}.mt-2{margin-top:0.5rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-14{height:3.5rem}.h-40{height:10rem}.h-5{height:1.25rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-14{width:3.5rem}.w-5{width:1.25rem}.w-full{width:100%}.max-w-4xl{max-width:56rem}.flex-shrink-0{flex-shrink:0}.cursor-pointer{cursor:pointer}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-3{gap:0.75rem}.gap-6{gap:1.5rem}.gap-x-6{column-gap:1.5rem}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border-b{border-bottom-width:1px}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-indigo-900{--tw-bg-opacity:1;background-color:rgb(49 46 129 / var(--tw-bg-opacity, 1))}.bg-orange-700{--tw-bg-opacity:1;background-color:rgb(194 65 12 / var(--tw-bg-opacity, 1))}.bg-pink-500{--tw-bg-opacity:1;background-color:rgb(236 72 153 / var(--tw-bg-opacity, 1))}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.object-cover{object-fit:cover}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pl-4{padding-left:1rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-green-300{--tw-text-opacity:1;color:rgb(134 239 172 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-300{--tw-text-opacity:1;color:rgb(253 224 71 / var(--tw-text-opacity, 1))}.opacity-70{opacity:0.7}.opacity-80{opacity:0.8}.opacity-90{opacity:0.9}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:text-red-500:hover{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:p-8{padding:2rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-6xl{font-size:3.75rem;line-height:1}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.right-3{right:0.75rem}.top-3{top:0.75rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.ml-4{margin-left:1rem}.ml-6{margin-left:1.5rem}.mt-2{margin-top:0.5rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-14{height:3.5rem}.h-40{height:10rem}.h-5{height:1.25rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-14{width:3.5rem}.w-5{width:1.25rem}.w-full{width:100%}.max-w-4xl{max-width:56rem}.flex-shrink-0{flex-shrink:0}.cursor-pointer{cursor:pointer}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-3{gap:0.75rem}.gap-6{gap:1.5rem}.gap-x-6{column-gap:1.5rem}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border-b{border-bottom-width:1px}.border-gray-800{--tw-border-opacity:1;border-color:rgb(31 41 55 / var(--tw-border-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55 / var(--tw-bg-opacity, 1))}.bg-orange-700{--tw-bg-opacity:1;background-color:rgb(194 65 12 / var(--tw-bg-opacity, 1))}.bg-pink-500{--tw-bg-opacity:1;background-color:rgb(236 72 153 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.object-cover{object-fit:cover}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pl-4{padding-left:1rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-blue-300{--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-green-300{--tw-text-opacity:1;color:rgb(134 239 172 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-300{--tw-text-opacity:1;color:rgb(253 224 71 / var(--tw-text-opacity, 1))}.opacity-70{opacity:0.7}.opacity-80{opacity:0.8}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.01\]:hover{--tw-scale-x:1.01;--tw-scale-y:1.01;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:text-red-500:hover{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:p-8{padding:2rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-6xl{font-size:3.75rem;line-height:1}}</style><script src="file:///code?h=&amp;t=1764787382070" type="text/javascript" defer="" async=""></script></head>
+<body class="p-4 md:p-8 min-h-screen">
+
+
+    <audio id="bgMusic" src="https://github.com/user-attachments/files/23913301/default.mp3" loop=""></audio>
+
+    <div id="videoModal" class="video-modal hidden">
+        <div class="video-container p-6">
+            <h2 class="text-2xl font-bold text-center mb-4 text-white">// ПРОМО-ТРАНСЛЯЦИЯ //</h2>
+            <div class="video-responsive rounded-lg overflow-hidden">
+                <iframe id="promoVideo" width="100%" height="100%" src="./Супер сайт!!!!_files/dQw4w9WgXcQ&amp;autoplay=0&amp;rel=0&amp;loop=1&amp;mute=1.html" title="Promo Video Placeholder" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+                </iframe>
+            </div>
+            <button id="closeModal" class="absolute top-3 right-3 p-1 rounded-full text-lg hover:text-red-500 transition" style="color: var(--spotify-light-gray); background-color: transparent;">
+                ×
+            </button>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+        <header class="mb-10 text-center">
+            <h1 class="text-5xl md:text-6xl font-black text-white">
+                AUDIO ACADEMY
+            </h1>
+            <h2 class="text-xl md:text-2xl mt-2 text-white opacity-80">
+                Создание Музыки в DAW: Программа Курса V.2025
+            </h2>
+             <div class="flex justify-center mt-6">
+                 <button id="openModal" class="spotify-button py-3 px-8 text-sm rounded-full tracking-wider shadow-xl">
+                    ПРОСМОТРЕТЬ ПРОМО-РОЛИК
+                </button>
+            </div>
+        </header>
+
+        <div class="spotify-panel p-6 md:p-8">
+            <div id="tabs" class="flex flex-wrap border-b border-gray-800 mb-8 gap-x-6">
+                <div class="spotify-tab p-2 text-base active" data-content="intro">
+                    ВВЕДЕНИЕ
+                </div>
+                <div class="spotify-tab p-2 text-base" data-content="rhythm">
+                    БИТ &amp; РИТМ
+                </div>
+                <div class="spotify-tab p-2 text-base" data-content="melody">
+                    МЕЛОДИЯ &amp; DAW
+                </div>
+                <div class="spotify-tab p-2 text-base" data-content="mastering">
+                    МАСТЕРИНГ
+                </div>
+                 <div class="spotify-tab p-2 text-base" data-content="gallery">
+                    ГАЛЕРЕЯ ПРОЕКТОВ
+                </div>
+            </div>
+
+            <div id="content-area">
+                <div id="intro" class="content-block">
+                    <h3 class="text-3xl mb-4 font-extrabold text-white">
+                        МОДУЛЬ I: АНАЛОГОВЫЙ МИР -&gt; ЦИФРОВОЙ
+                    </h3>
+                    <p class="mb-6 text-base text-white opacity-80">
+                        Цель: Познакомить учащихся с миром цифровой музыки, развить творческое мышление и умение самостоятельно реализовывать свои музыкальные идеи.
+                    </p>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-white mb-2">ЗАНЯТИЕ 1: АУДИО-ДЕТЕКТИВ</h4>
+                        <ul class="list-disc ml-6 text-sm space-y-2 text-white opacity-70">
+                            <li>Теория: Обсуждаем, где мы встречаем музыку (игры, тикток, YouTube, фильмы). Объясняем, что всю эту музыку можно создавать на компьютере.</li>
+                            <li>Практика: Слушаем и разбираем простые треки разных жанров, определяем основные элементы: бит, бас, мелодия, эффекты.</li>
+                            <li>ДЗ: Найти в любимой игре/ролике 3 разных звука (ударный, басовый, мелодический).</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-white mb-2">ЗАНЯТИЕ 2: DAW — СТАНЦИЯ ЗАПУСКА</h4>
+                        <ul class="list-disc ml-6 text-sm space-y-2 text-white opacity-70">
+                            <li>Теория: Что такое DAW (цифровая звуковая рабочая станция)? Простая аналогия с конструктором Lego.</li>
+                            <li>Обзор DAW: BandLab (простой/бесплатный), FL Studio (популярный), Ableton Live (для экспериментов), Logic Pro (Apple).</li>
+                            <li>Практика: Устанавливаем выбранную DAW (например, BandLab для старта). Первое знакомство с интерфейсом.</li>
+                            <li class="hidden">Конфигурационные данные: <span id="appIdData" data-app-id="48B5-2C9A-DBA1" data-user-id="2077.12.03"></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="rhythm" class="content-block hidden">
+                    <h3 class="text-3xl mb-4 font-extrabold text-white">
+                        МОДУЛЬ II: СИНТЕЗ РИТМА
+                    </h3>
+                    <p class="mb-6 text-base text-white opacity-80">
+                        Принцип: От простого к сложному. Каждое занятие заканчивается конкретным результатом (готовый бит).
+                    </p>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-white mb-2">ЗАНЯТИЕ 3: 4 НА 4</h4>
+                        <ul class="list-disc ml-6 text-sm space-y-2 text-white opacity-70">
+                            <li>Знакомство: Создание музыки в Piano Roll.</li>
+                            <li>Практика: Создаем свой первый грув: Kick (бочка), Snare (хлопок), Hi-Hat (тарелка).</li>
+                            <li>Семплы: Работа с готовыми семплами (звуками) из библиотеки.</li>
+                            <li>Челлендж: Создать бит в стиле трэп или хаус.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-white mb-2">ЗАНЯТИЕ 4: УГЛУБЛЕННЫЙ РИТМ</h4>
+                        <ul class="list-disc ml-6 text-sm space-y-2 text-white opacity-70">
+                            <li>Теория: Что такое свинг (swing) и грув. Как сделать ритм "качающим".</li>
+                            <li>Практика: Добавляем перкуссию (Clap, Shaker), создаем вариации ритма (брейки).</li>
+                            <li>Результат: Готовый, динамичный 8-тактовый барабанный луп.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="melody" class="content-block hidden">
+                    <h3 class="text-3xl mb-4 font-extrabold text-white">
+                        МОДУЛЬ III: ЦИФРОВАЯ ГАРМОНИЯ
+                    </h3>
+                    <p class="mb-6 text-base text-white opacity-80">
+                        Инструменты: Виртуальные синтезаторы и обработка звука.
+                    </p>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-white mb-2">ЗАНЯТИЕ 5: СИНТЕЗ И БАС</h4>
+                        <ul class="list-disc ml-6 text-sm space-y-2 text-white opacity-70">
+                            <li>Работа: с виртуальными инструментами (синтезаторы, фортепиано).</li>
+                            <li>Бас: Знакомство с понятием "бас-линия". Создание простой мелодии из 4-тактов.</li>
+                            <li>Эффекты: Использование функции "Квинтующие" (Auto-Tune для веселья) и фильтров.</li>
+                            <li>Практика: Написать мелодию для своего бита.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-white mb-2">ЗАНЯТИЕ 6: СТРУКТУРА ТРЕКА</h4>
+                        <ul class="list-disc ml-6 text-sm space-y-2 text-white opacity-70">
+                            <li>Теория: Обсуждение режима "Session View" (Ableton) или "Playlist" (FL Studio). Собираем трек из кубиков (секций).</li>
+                            <li>Практика: Создание Intro, Verse, Chorus. Собираем полноценный мини-трек длиной 1 минута, используя созданные ранее биты и мелодии.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="mastering" class="content-block hidden">
+                    <h3 class="text-3xl mb-4 font-extrabold text-white">
+                        МОДУЛЬ IV: ЭКСПОРТ &amp; КОММУНИКАЦИЯ
+                    </h3>
+                    <p class="mb-6 text-base text-white opacity-80">
+                        Задача: От идеи до готового, чистого трека, готового к публикации.
+                    </p>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-white mb-2">ЗАНЯТИЕ 7: ЗВУКОВОЙ ДИЗАЙН &amp; СВЕДЕНИЕ</h4>
+                        <ul class="list-disc ml-6 text-sm space-y-2 text-white opacity-70">
+                            <li>Семплы: Как найти крутые звуки в интернете, как записать свой голос или звук с микрофона.</li>
+                            <li>Простое сведение: громкость, панорамирование (влево-вправо), простейшая эквализация.</li>
+                            <li>Челлендж: Дается отрывок геймплея без звука. Задача — создать подходящую атмосферу звуками и музыкой.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="text-xl font-bold text-white mb-2">ЗАНЯТИЕ 8: МАСТЕРИНГ И РЕЛИЗ</h4>
+                        <ul class="list-disc ml-6 text-sm space-y-2 text-white opacity-70">
+                            <li>Мастеринг: Как сделать свой трек громким и четким (компрессия, лимитер).</li>
+                            <li>Экспорт: Как его экспортировать в MP3/WAV.</li>
+                            <li>Финальный проект: Самостоятельное создание трека в выбранной DAW на свободную тему.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="gallery" class="content-block hidden">
+                    <h3 class="text-3xl mb-4 font-extrabold text-white">
+                        ГАЛЕРЕЯ ЗАВЕРШЕННЫХ ПРОЕКТОВ
+                    </h3>
+                    <p class="mb-6 text-base text-white opacity-80">
+                        Виртуальная галерея лучших работ. <span style="color: var(--spotify-green);" class="font-bold">Нажмите "Play" для прослушивания превью.</span>
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        
+                        <div class="spotify-card p-3 rounded-xl flex items-center justify-between hover:scale-[1.01] transition duration-200 cursor-pointer" data-audio-src="https://github.com/user-attachments/files/23904216/default.mp3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-14 h-14 bg-pink-500 rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden">
+                                    <img src="https://private-user-images.githubusercontent.com/160409518/521861538-4c2d7fb6-822e-4e95-b3b2-1819ba5c7a1c.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ3ODgxMjcsIm5iZiI6MTc2NDc4NzgyNywicGF0aCI6Ii8xNjA0MDk1MTgvNTIxODYxNTM4LTRjMmQ3ZmI2LTgyMmUtNGU5NS1iM2IyLTE4MTliYTVjN2ExYy5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMjAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTIwM1QxODUwMjdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lNjk1NWIzYjk5MTc0ZGVmMmNhNDY5YzM4Yjk2ZDM4MTU5ZWI5MzI2ZTYzMGJkNzIzMmE2MzRiZDRmMTdjZjhiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.LRi1gZzSxpBAKVfDQJ0zQr7Qe6fg6L5ks3HFhUp8z2o" onerror="this.onerror=null; this.src=&#39;https://placehold.co/56x56/FF69B4/000000?text=Art&#39;;" alt="СВЕГЧИНА Art" class="w-full h-full object-cover">
+                                </div>
+                                <div class="truncate">
+                                    <p class="text-base font-bold text-white tracking-wide truncate">СВЕГЧИНА</p>
+                                    <p class="text-sm text-gray-400">masterklame</p>
+                                </div>
+                            </div>
+                            <button class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition" style="background-color: var(--spotify-green);"><svg class="w-5 h-5 text-black ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"></path></svg></button>
+                        </div>
+
+                        <div class="spotify-card p-3 rounded-xl flex items-center justify-between hover:scale-[1.01] transition duration-200 cursor-pointer" data-audio-src="https://github.com/user-attachments/files/23904540/default.mp3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-14 h-14 bg-white rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden">
+                                    <img src="https://private-user-images.githubusercontent.com/160409518/521861539-e925fdb8-648b-4c49-9471-0ae46a1ebe26.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ3ODgxMjcsIm5iZiI6MTc2NDc4NzgyNywicGF0aCI6Ii8xNjA0MDk1MTgvNTIxODYxNTM5LWU5MjVmZGI4LTY0OGItNGM0OS05NDcxLTBhZTQ2YTFlYmUyNi5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMjAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTIwM1QxODUwMjdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jZjJlMTA2NGMzYTEyYTNmYjQzZTJhNWU1MzA2OWFmMjZjYWEzMWViOTczMDkwY2JiYzhjODI4ZWRlOGE1MjhkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.MzRI8ssgyxlqofIh2HpXfxRDEbBjOwwf06eVNQLsG-M" onerror="this.onerror=null; this.src=&#39;https://placehold.co/56x56/000000/FFFFFF?text=Logo&#39;;" alt="БИТ Art" class="w-full h-full object-cover">
+                                </div>
+                                <div class="truncate">
+                                    <p class="text-base font-bold text-white tracking-wide truncate">БИТ</p>
+                                    <p class="text-sm text-gray-400">masterklame</p>
+                                </div>
+                            </div>
+                            <button class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition" style="background-color: var(--spotify-green);"><svg class="w-5 h-5 text-black ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"></path></svg></button>
+                        </div>
+                        
+                        <div class="spotify-card p-3 rounded-xl flex items-center justify-between hover:scale-[1.01] transition duration-200 cursor-pointer" data-audio-src="https://github.com/user-attachments/files/23904542/default.mp3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-14 h-14 bg-orange-700 rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden">
+                                    <img src="https://private-user-images.githubusercontent.com/160409518/521861535-b8f1d20e-9e6f-4bc5-b4d7-dbf4ac149fa3.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ3ODgxMjcsIm5iZiI6MTc2NDc4NzgyNywicGF0aCI6Ii8xNjA0MDk1MTgvNTIxODYxNTM1LWI4ZjFkMjBlLTllNmYtNGJjNS1iNGQ3LWRiZjRhYzE0OWZhMy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMjAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTIwM1QxODUwMjdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04ODhjMDE3Nzg1OTMwZjA1NjIzZDFhYjNmMDBhNTNjMTM1Zjc1ODdiYmE5MzI1MzY2ZmVlMjBjY2U5MTA2NjFlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.ryu7aQA02-q8e4KQejC-wGu_RhMMroUFGp7MFkKokLk" onerror="this.onerror=null; this.src=&#39;https://placehold.co/56x56/E67E22/FFFFFF?text=%E2%99%AA&#39;;" alt="НОВОЕ ЧЕТО Art" class="w-full h-full object-cover">
+                                </div>
+                                <div class="truncate">
+                                    <p class="text-base font-bold text-white tracking-wide truncate">НОВОЕ ЧЕТО</p>
+                                    <p class="text-sm text-gray-400">masterklame</p>
+                                </div>
+                            </div>
+                            <button class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition" style="background-color: var(--spotify-green);"><svg class="w-5 h-5 text-black ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"></path></svg></button>
+                        </div>
+                        
+                        <div class="spotify-card p-3 rounded-xl flex items-center justify-between hover:scale-[1.01] transition duration-200 cursor-pointer" data-audio-src="https://github.com/user-attachments/files/23904541/banger.mp3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-14 h-14 bg-black rounded-md flex-shrink-0 flex items-center justify-center overflow-hidden">
+                                    <img src="https://private-user-images.githubusercontent.com/160409518/521861534-ea97746d-5584-4eee-bb00-59ebf5bc6d07.jpg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ3ODgxMjcsIm5iZiI6MTc2NDc4NzgyNywicGF0aCI6Ii8xNjA0MDk1MTgvNTIxODYxNTM0LWVhOTc3NDZkLTU1ODQtNGVlZS1iYjAwLTU5ZWJmNWJjNmQwNy5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMjAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTIwM1QxODUwMjdaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04YjIwY2NhOTkwMTU5ZjRiOTA3MDA3YTgyNDI3NmRjYmMwZmM4MTY3YmJiMzgzMTRkZDBiMjM4MGIzOTU1N2ViJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.e_pgSFrXOFRwkOU1TSBCumgGZ7QPC_UlB6x5gwjv16I" onerror="this.onerror=null; this.src=&#39;https://placehold.co/56x56/333333/FFD700?text=Fire&#39;;" alt="BANGER Art" class="w-full h-full object-cover">
+                                </div>
+                                <div class="truncate">
+                                    <p class="text-base font-bold text-white tracking-wide truncate">BANGER</p>
+                                    <p class="text-sm text-gray-400">masterklame</p>
+                                </div>
+                            </div>
+                            <button class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 hover:scale-110 transition" style="background-color: var(--spotify-green);"><svg class="w-5 h-5 text-black ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"></path></svg></button>
+                        </div>
+                    </div>
+
+                    <p class="mt-6 text-sm text-gray-400 text-center">Все права принадлежат Wasterklame.</p>
+                </div>
+            </div>
+        </div>
+        <!-- КОНЕЦ ПАНЕЛИ 1 -->
+
+        <!-- ПАНЕЛЬ 2: МОЯ АППАРАТУРА (НОВАЯ, ОТДЕЛЬНАЯ ПАНЕЛЬ) -->
+        <div class="spotify-panel mt-8 p-6 md:p-8">
+            <h3 class="text-3xl mb-4 font-black text-white content-block">
+                МОЯ АППАРАТУРА: СТУДИЯ И ИНСТРУМЕНТЫ
+            </h3>
+            <p class="mb-6 text-base text-white opacity-80">
+                Здесь вы найдете обзор оборудования, которое я использую для создания музыки и обучения. Главное — помнить, что результат зависит не от цены оборудования, а от умения им пользоваться!
+            </p>
+
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Карточка 1: Наушники ATH-M40x (С АНИМАЦИЕЙ) -->
+                <div class="spotify-card p-4 rounded-xl flex flex-col items-center">
+                    <!-- Контейнер для изображения с overflow: hidden -->
+                    <div class="equipment-image-container w-full h-40 bg-gray-800 mb-4 rounded-lg">
+                        <img src="https://private-user-images.githubusercontent.com/160409518/522040054-aa1f27b7-9377-449a-991a-9b41002eb31a.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjQ3ODgzODgsIm5iZiI6MTc2NDc4ODA4OCwicGF0aCI6Ii8xNjA0MDk1MTgvNTIyMDQwMDU0LWFhMWYyN2I3LTkzNzctNDQ5YS05OTFhLTliNDEwMDJlYjMxYS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMjAzJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTIwM1QxODU0NDhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jMzY2NTAyNjczMTFhNjAyOWM1ZDNmNzMwMDA5YmM2YzRiYmNkMmNjNzhiZWU4NTE2Nzg2MWYxZmZjMTE3NDJlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.IZhzteL3NhmvwNDp93FUkfqHV4Ktm3tEBDQlCIOkkVA" onerror="this.onerror=null; this.src=&#39;https://placehold.co/600x400/333333/FFFFFF?text=Наушники+Placeholder&#39;;" alt="Наушники Audio-Technica ATH-M40x" class="equipment-image">
+                    </div>
+                    
+                    <div class="text-center w-full">
+                        <h4 class="text-xl font-bold text-white mb-2 text-green-300">НАУШНИКИ</h4>
+                        <p class="text-sm text-gray-400 mb-2 font-mono">Audio-Technica ATH-M40x</p>
+                        <ul class="list-disc ml-4 text-xs space-y-1 text-white opacity-70 text-left w-full pl-4">
+                            <li>Закрытый тип для мониторинга и записи (отличная шумоизоляция).</li>
+                            <li>Нейтральный частотный отклик, важен для точного сведения.</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Карточка 2: DAW -->
+                <div class="spotify-card p-4 rounded-xl">
+                    <h4 class="text-xl font-bold text-white mb-2 text-yellow-300">DAW (Рабочая станция)</h4>
+                    <p class="text-sm text-gray-400 mb-2">Fruity Loops 21 Full Edition</p>
+                    <ul class="list-disc ml-4 text-xs space-y-1 text-white opacity-70">
+                        <li>Основной инструмент для аранжировки и живых выступлений.</li>
+                        <li>Любимые плагины: UAD LC-A2, FabFilter Pro-Q 3.</li>
+                    </ul>
+                </div>
+                
+                <!-- Карточка 3: MIDI Клавиатура -->
+                <div class="spotify-card p-4 rounded-xl">
+                    <h4 class="text-xl font-bold text-white mb-2 text-blue-300">MIDI-контроллер</h4>
+                    <p class="text-sm text-gray-400 mb-2">NECTAR SE25</p>
+                    <ul class="list-disc ml-4 text-xs space-y-1 text-white opacity-70">
+                        <li>25 полноразмерных клавиш.</li>
+                        <li>Использую для записи мелодий и басовых партий.</li>
+                    </ul>
+                </div>
+
+                <!-- Карточка 4: Мониторы -->
+                <div class="spotify-card p-4 rounded-xl">
+                    <h4 class="text-xl font-bold text-white mb-2 text-red-400">Студийные Мониторы</h4>
+                    <p class="text-sm text-gray-400 mb-2">Yamaha HS5 (пара)</p>
+                    <ul class="list-disc ml-4 text-xs space-y-1 text-white opacity-70">
+                        <li>Отличаются "честным" звучанием, что помогает при сведении.</li>
+                        <li>Подключение: Arturia minifuse 1.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- КОНЕЦ ПАНЕЛИ 2 -->
+
+        <!-- Информационная строка внизу -->
+        <div class="mt-8 text-xs text-gray-600 text-center">
+            [USER ID: 48B5-2C9A-DBA1] [LAST LOG: 2025.12.03]
+        </div>
+    </div>
+
+    <!-- JavaScript для управления вкладками, музыкой и модальным окном -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const tabsContainer = document.getElementById('tabs');
+            const contentArea = document.getElementById('content-area');
+            const tabButtons = tabsContainer.querySelectorAll('.spotify-tab'); 
+            const bgMusic = document.getElementById('bgMusic');
+
+            const videoModal = document.getElementById('videoModal');
+            const openModalButton = document.getElementById('openModal');
+            const closeModalButton = document.getElementById('closeModal');
+            const promoVideoIframe = document.getElementById('promoVideo');
+
+            // Глобальные переменные
+            let currentTrack = null; 
+            let currentPlayButton = null;
+            // Флаг, который показывает, что пользователь УЖЕ разрешил воспроизведение (сделал первый клик)
+            let isMusicUnlocked = false; 
+            
+            // Иконки для кнопок
+            const iconPlay = `<svg class="w-5 h-5 text-black ml-1" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg>`;
+            const iconPause = `<svg class="w-5 h-5 text-black" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+
+            // --- ЛОГИКА ДЛЯ ПРОИГРЫВАНИЯ/ОСТАНОВКИ ТРЕКОВ (Только один трек за раз) ---
+            function playTrack(card, button) {
+                const audioSrc = card.getAttribute('data-audio-src');
+                let isSameTrackClicked = false;
+                
+                // 1. ПРИНУДИТЕЛЬНАЯ ОСТАНОВКА ВСЕГО И ПРОВЕРКА СОСТОЯНИЯ
+                if (currentTrack) {
+                    // Проверяем, кликнули ли на тот же самый трек (сравниваем src)
+                    if (currentTrack.src === new Audio(audioSrc).src) { 
+                        isSameTrackClicked = true;
+                    }
+
+                    // Всегда останавливаем и сбрасываем предыдущий трек
+                    currentTrack.pause();
+                    currentTrack.currentTime = 0;
+                    if (currentPlayButton) {
+                        currentPlayButton.innerHTML = iconPlay;
+                    }
+                    
+                    // Очищаем глобальные ссылки
+                    currentTrack = null;
+                    currentPlayButton = null;
+
+                    // Если кликнули на тот же трек (Toggle Pause)
+                    if (isSameTrackClicked) {
+                        // Возобновляем фоновую музыку, если она была приостановлена для этого трека
+                        if (bgMusic.dataset.pausedForTrack === 'true') {
+                            bgMusic.play().catch(e => {
+                                console.log('// АУДИО: Не удалось возобновить фоновую музыку. //', e);
+                            });
+                            delete bgMusic.dataset.pausedForTrack;
+                        }
+                        console.log('// АУДИО: Воспроизведение трека остановлено (Toggle). //');
+                        return;
+                    }
+                }
+                
+                // 2. ЗАПУСК НОВОГО ТРЕКА
+                
+                const newTrack = new Audio(audioSrc);
+                newTrack.volume = 0.5; // Громкость для превью
+                
+                // Запускаем новый трек
+                newTrack.play()
+                    .then(() => {
+                        console.log(`// АУДИО: Запущен новый трек: ${audioSrc} //`);
+                        
+                        // Устанавливаем новые глобальные ссылки
+                        currentTrack = newTrack;
+                        currentPlayButton = button;
+                        
+                        // Меняем иконку на "Пауза"
+                        currentPlayButton.innerHTML = iconPause;
+                        
+                        // Очистка по завершении трека
+                        newTrack.onended = () => {
+                            // Возобновляем фоновую музыку, если она была приостановлена для этого трека
+                            if (bgMusic.dataset.pausedForTrack === 'true') {
+                                bgMusic.play().catch(e => {
+                                    console.log('// АУДИО: Не удалось возобновить фоновую музыку. //', e);
+                                });
+                                delete bgMusic.dataset.pausedForTrack;
+                            }
+
+                            currentPlayButton.innerHTML = iconPlay;
+                            currentTrack = null;
+                            currentPlayButton = null;
+                            console.log('// АУДИО: Трек завершен. //');
+                        };
+                    })
+                    .catch(error => {
+                        console.error('// АУДИО: Ошибка воспроизведения трека превью: //', error);
+                        // Возвращаем иконку Play в случае ошибки
+                        button.innerHTML = iconPlay;
+                    });
+            }
+
+            // Назначаем обработчик на клики внутри галереи
+            document.getElementById('gallery').addEventListener('click', (e) => {
+                const button = e.target.closest('.w-10.h-10.rounded-full');
+                if (button) {
+                    const card = button.closest('.spotify-card');
+                    if (card) {
+                        // Логика паузы BG Music при запуске трека Галереи:
+                        if (isMusicUnlocked && !bgMusic.paused) {
+                            bgMusic.pause();
+                            bgMusic.dataset.pausedForTrack = 'true'; 
+                            console.log('// АУДИО: Фоновая музыка приостановлена для трека Галереи. //');
+                        }
+                        // Запускаем/переключаем трек галереи
+                        playTrack(card, button);
+                    }
+                }
+            });
+            // --- КОНЕЦ ЛОГИКИ ДЛЯ ГАЛЕРЕИ ---
+
+            // --- УПРАВЛЕНИЕ ВКЛАДКАМИ (ВОССТАНОВЛЕНО) ---
+            function switchTab(targetId) {
+                // Скрываем весь контент и убираем активный класс
+                contentArea.querySelectorAll('.content-block').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                tabButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+
+                // Показываем нужный контент и делаем кнопку активной
+                const activeContent = document.getElementById(targetId);
+                const activeButton = tabsContainer.querySelector(`[data-content="${targetId}"]`);
+                if (activeContent) { activeContent.classList.remove('hidden'); }
+                if (activeButton) { activeButton.classList.add('active'); }
+                
+                
+                // 1. Логика паузы/возобновления фоновой музыки (только при входе/выходе из Галереи)
+                if (targetId === 'gallery') {
+                    // Вход в Галерею: Пауза фоновой музыки
+                    if (isMusicUnlocked && !bgMusic.paused) {
+                        bgMusic.pause();
+                        bgMusic.dataset.pausedForGallery = 'true'; // Флаг: пауза из-за вкладки
+                        console.log('// АУДИО: Вход в Галерею. Фоновая музыка приостановлена. //');
+                    }
+                } else {
+                    // Выход из Галереи: Возобновление фоновой музыки, если она была приостановлена вкладкой
+                    if (bgMusic.dataset.pausedForGallery === 'true') {
+                        bgMusic.play().then(() => {
+                            console.log('// АУДИО: Выход из Галереи. Фоновая музыка возобновлена. //');
+                        }).catch(e => {
+                            console.log('// АУДИО: Не удалось возобновить фоновую музыку. //', e);
+                        });
+                        delete bgMusic.dataset.pausedForGallery; // Сбрасываем флаг
+                    }
+                }
+
+                // 2. Останавливаем трек галереи, если выходим из нее
+                if (targetId !== 'gallery' && currentTrack) {
+                    currentTrack.pause();
+                    currentTrack.currentTime = 0;
+                    if (currentPlayButton) {
+                        currentPlayButton.innerHTML = iconPlay;
+                    }
+                    currentTrack = null;
+                    currentPlayButton = null;
+                    
+                    // Сброс флага паузы для трека (если он был установлен)
+                    if (bgMusic.dataset.pausedForTrack === 'true') {
+                        delete bgMusic.dataset.pausedForTrack;
+                    }
+                }
+            }
+
+            // Назначаем обработчики кликов на кнопки вкладок
+            tabButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const targetId = e.target.getAttribute('data-content');
+                    switchTab(targetId);
+                });
+            });
+
+
+            // --- АВТОВОСПРОИЗВЕДЕНИЕ МУЗЫКИ (При первой интеракции) ---
+            
+            // Функция, которая пытается запустить музыку
+            function attemptAutoplay() {
+                if (isMusicUnlocked) return; 
+
+                // Устанавливаем громкость (0.25)
+                bgMusic.volume = 0.25; 
+                
+                bgMusic.play()
+                    .then(() => {
+                        console.log('// АУДИО: Фоновая музыка успешно запущена. //');
+                        isMusicUnlocked = true; // Теперь музыка "разблокирована"
+                        // Если запуск успешен, удаляем слушатель
+                        document.removeEventListener('click', attemptAutoplay);
+                        document.removeEventListener('keydown', attemptAutoplay);
+                    })
+                    .catch(error => {
+                        // Если заблокировано, оставляем слушателей для повторной попытки при клике
+                    });
+            }
+
+            // Вешаем слушатель на весь документ.
+            document.addEventListener('click', attemptAutoplay);
+            document.addEventListener('keydown', attemptAutoplay);
+
+            // --- УПРАВЛЕНИЕ ВИДЕО МОДАЛОМ ---
+
+            // Функция открытия модального окна
+            openModalButton.addEventListener('click', () => {
+                // 1. ПРИОСТАНОВКА ВСЕГО АУДИО 
+                if (isMusicUnlocked && !bgMusic.paused) {
+                    bgMusic.pause();
+                    bgMusic.dataset.modalPaused = 'true';
+                    console.log('// АУДИО: Фоновая музыка приостановлена. //');
+                } else {
+                    delete bgMusic.dataset.modalPaused;
+                }
+                
+                // Останавливаем трек галереи, если он играет
+                if (currentTrack) {
+                    currentTrack.pause();
+                    currentPlayButton.innerHTML = iconPlay;
+                    currentTrack = null;
+                    currentPlayButton = null;
+                }
+
+
+                videoModal.classList.remove('hidden');
+                // Перезагрузка iframe с параметром autoplay=1 для запуска видео
+                const currentSrc = promoVideoIframe.src;
+                const newSrc = currentSrc.includes('?') ? 
+                               currentSrc.replace(/[?&]autoplay=0/, '&autoplay=1').replace('autoplay=0', 'autoplay=1') : 
+                               currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'autoplay=1';
+                
+                promoVideoIframe.src = newSrc;
+            });
+
+            // Функция закрытия модального окна
+            closeModalButton.addEventListener('click', () => {
+                videoModal.classList.add('hidden');
+                // Останавливаем видео
+                const currentSrc = promoVideoIframe.src;
+                const stopSrc = currentSrc.replace(/autoplay=1/, 'autoplay=0');
+                promoVideoIframe.src = stopSrc;
+
+                // 2. ВОЗОБНОВЛЕНИЕ ФОНОВОЙ МУЗЫКИ 
+                // Возобновляем только если была пауза из-за модального окна
+                if (bgMusic.dataset.modalPaused === 'true') {
+                    bgMusic.play();
+                    delete bgMusic.dataset.modalPaused;
+                    console.log('// АУДИО: Фоновая музыка возобновлена. //');
+                }
+            });
+
+            // Активируем начальную вкладку при загрузке
+            switchTab('intro');
+        });
+    </script>
+    
+    <!--
+        БЛОК ИНИЦИАЛИЗАЦИИ FIREBASE
+    -->
+    <script type="module">
+        // --- Логика Firebase (обязательная для Canvas) ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Получение и парсинг конфигурации Firebase из глобальной переменной
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        let db, auth;
+        
+        async function setupFirebase() {
+            if (Object.keys(firebaseConfig).length === 0) {
+                console.error("// FIREBASE: Конфигурация не предоставлена. Функции базы данных не будут работать.");
+                return;
+            }
+            
+            try {
+                setLogLevel('debug'); // Для отладки
+                const app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                
+                if (initialAuthToken) {
+                    await signInWithCustomToken(auth, initialAuthToken);
+                    console.log("// FIREBASE: Аутентификация успешна (Custom Token). //");
+                } else {
+                    await signInAnonymously(auth);
+                    console.log("// FIREBASE: Аутентификация успешна (Анонимный вход). //");
+                }
+            } catch (error) {
+                console.error("// FIREBASE: Ошибка установки или входа:", error);
+            }
+        }
+        setupFirebase();
+        // --- Конец логики Firebase ---
+    </script>
+
+<script id="J5Lmh0bWw=" src="./Супер сайт!!!!_files/ga"></script><script id="IuaHRtbA==" src="./Супер сайт!!!!_files/ga(1)"></script></body></html>
